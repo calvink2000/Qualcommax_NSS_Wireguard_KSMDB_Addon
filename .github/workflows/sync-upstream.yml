@@ -1,0 +1,26 @@
+name: Auto Sync Upstream
+
+on:
+  schedule:
+    # Runs twice a month: on the 1st and 15th at 12:00 AM UTC
+     - cron: "0 0 * * 0"
+  workflow_dispatch: # Allows you to trigger the sync manually by clicking a button
+
+jobs:
+  sync:
+    name: Sync with Main Repository
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Fork Target Branch
+        uses: actions/checkout@v4
+        with:
+          ref: main       # Target branch in your fork
+          persist-credentials: true
+
+      - name: Fetch and Sync from Upstream
+        uses: repo-sync/github-sync@v2
+        with:
+          source_repo: "JuliusBairaktaris/Qualcommax_NSS_Builder"
+          source_branch: "main"
+          destination_branch: "main"
+          github_token: ${{ secrets.GITHUB_TOKEN }}
