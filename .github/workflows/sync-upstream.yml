@@ -24,14 +24,13 @@ jobs:
           git config --global user.email "actions@github.com"
           
           # 2. Add the original developer's repository as a source link
-          git remote add upstream https://github.com/JuliusBairaktaris/Qualcommax_NSS_Builder.git
+          git remote add upstream https://github.com
           
           # 3. Pull down the newest upstream updates
           git fetch upstream main
           
-          # 4. Merge changes cleanly. 
-          # This pulls down upstream workflow files successfully using your advanced SYNC_PAT rights.
+          # 4. Merge changes cleanly
           git merge upstream/main --allow-unrelated-histories -m "Automated upstream sync"
           
-          # 5. Push the updated files back to your personal main branch
-          git push origin main
+          # 5. Push using your authenticated Fine-Grained Token to bypass the 403 block
+          git push https://x-access-token:${{ secrets.SYNC_PAT }}@://github.com main
