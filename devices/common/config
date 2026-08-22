@@ -106,7 +106,7 @@ CONFIG_KERNEL_IPV6_MROUTE=y
 ## mroute daemon to populate the kernel MFC; ECM then offloads each MFC entry.
 ## Not bundled - add igmpproxy (or smcroute) in your fork if you have a WAN
 ## multicast source. See docs/CUSTOMIZE.md.
-# CONFIG_PACKAGE_igmpproxy is not set
+CONFIG_PACKAGE_igmpproxy=y
 CONFIG_NSS_FIRMWARE_VERSION_12_5=y
 
 ## ath11k NSS Wi-Fi offload (wifili). Boots host-mode (nss_offload=0,
