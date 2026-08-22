@@ -24,7 +24,7 @@ jobs:
           git config --global user.email "actions@github.com"
           
           # 2. Add the original developer's repository as a source link
-          git remote add upstream https://github.com
+          git remote add upstream https://github.com/JuliusBairaktaris/Qualcommax_NSS_Builder.git
           
           # 3. Pull down the newest upstream updates
           git fetch upstream main
