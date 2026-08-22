@@ -3,7 +3,7 @@ name: Auto Sync Upstream (Simple Method)
 on:
   schedule:
     - cron: "0 14 * * 5"
-  workflow_dispatch: 
+  workflow_dispatch:
 
 jobs:
   sync:
